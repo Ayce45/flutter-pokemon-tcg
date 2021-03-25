@@ -40,7 +40,7 @@ class _HomePageState extends State<HomePage> {
   Widget _buildContent() {
     if (_pokemonModel == null) {
       return Center(
-        child: Text('No pokemon :('),
+        child: Text('No pokemon please refresh'),
       );
     } else {
       return ListView.builder(
@@ -49,35 +49,31 @@ class _HomePageState extends State<HomePage> {
           scrollDirection: Axis.vertical,
           shrinkWrap: true,
           itemBuilder: (BuildContext context, int index) {
-            return Container(
-              height: 200,
-              child: Row(
-                children: [
-                  CachedNetworkImage(
-                    imageUrl: _pokemonModel[index].imageUrl,
-                  ),
-                  Container(width: 10),
-                  Text(
-                    _pokemonModel[index].name,
-                    style: TextStyle(fontSize: 20),
-                  ),
-                  Container(width: 20),
-                  FlatButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) =>
-                                PokemonDetailPage(_pokemonModel[index]),
-                          ));
-                    },
-                    color: Colors.blue,
-                    child: Text(
-                      'Detail',
-                      style: TextStyle(color: Colors.white),
+            return GestureDetector(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          PokemonDetailPage(_pokemonModel[index]),
+                    ));
+              },
+              child: Container(
+                height: 121,
+                child: Row(
+                  children: [
+                    CachedNetworkImage(
+                      imageUrl: _pokemonModel[index].imageUrl,
+                      height: 80,
                     ),
-                  )
-                ],
+                    Container(width: 10),
+                    Text(
+                      _pokemonModel[index].name,
+                      style: TextStyle(fontSize: 20),
+                    ),
+                    Container(width: 20),
+                  ],
+                ),
               ),
             );
           });

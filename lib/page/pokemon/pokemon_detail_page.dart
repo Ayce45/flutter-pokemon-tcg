@@ -47,9 +47,11 @@ class PokemonDetailPage extends StatelessWidget {
                             style: TextStyle(
                                 fontSize: 30, fontWeight: FontWeight.bold),
                           ),
-                          Text(_pokemonModel.name,
-                              style: TextStyle(
-                                  fontSize: 30, fontWeight: FontWeight.bold))
+                          Text(
+                            _pokemonModel.name,
+                            style: TextStyle(
+                                fontSize: 30, fontWeight: FontWeight.bold),
+                          )
                         ],
                       ),
                     )
