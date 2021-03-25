@@ -2,6 +2,10 @@
 
 Pokedex in flutter app
 
+## Screenshot
+
+![36](https://user-images.githubusercontent.com/32338891/102370565-7ccb5000-3fbd-11eb-8afb-66ddae2821a3.png)
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
