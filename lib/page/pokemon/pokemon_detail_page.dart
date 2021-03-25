@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flip_card/flip_card.dart';
 import 'package:flutter/material.dart';
 import 'package:pokemon_tcg/model/pokemon_model.dart';
 
@@ -29,31 +30,59 @@ class PokemonDetailPage extends StatelessWidget {
                     ))),
                 Column(
                   children: [
-                    Expanded(
-                      child: Center(
-                        child: CachedNetworkImage(
-                          imageUrl: _pokemonModel.imageUrl,
+                    FlipCard(
+                      front: Expanded(
+                        child: Center(
+                          child: CachedNetworkImage(
+                            height: 300,
+                            width: 300,
+                            imageUrl: _pokemonModel.imageUrl,
+                          ),
                         ),
+                      ),
+                      back: Expanded(
+                        child: Center(
+                            child: Image(
+                                height: 300,
+                                width: 300,
+                                image: AssetImage('assets/images/back.png'))),
                       ),
                     ),
                     Container(height: 20),
-                    Expanded(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            _pokemonModel.id,
-                            style: TextStyle(
-                                fontSize: 30, fontWeight: FontWeight.bold),
-                          ),
-                          Text(
-                            _pokemonModel.name,
-                            style: TextStyle(
-                                fontSize: 30, fontWeight: FontWeight.bold),
-                          )
-                        ],
-                      ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          _pokemonModel.name,
+                          style: TextStyle(
+                              fontSize: 30, fontWeight: FontWeight.bold),
+                        ),
+                        Text(
+                          _pokemonModel.types
+                              .toString()
+                              .replaceAll('[', '')
+                              .replaceAll(']', ''),
+                          style: TextStyle(
+                              fontSize: 30, fontWeight: FontWeight.normal),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          _pokemonModel.hp,
+                          style: TextStyle(
+                              fontSize: 30, fontWeight: FontWeight.bold),
+                        ),
+                        Text(
+                          _pokemonModel.rarity,
+                          style: TextStyle(
+                              fontSize: 30, fontWeight: FontWeight.normal),
+                        ),
+                      ],
                     )
                   ],
                 ),

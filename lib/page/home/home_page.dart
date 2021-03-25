@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:pokemon_tcg/api/pokemon_tcg_api.dart';
@@ -32,6 +34,21 @@ class _HomePageState extends State<HomePage> {
       body: SafeArea(
         child: Container(
           child: _buildContent(),
+        ),
+      ),
+      floatingActionButton: new Visibility(
+        visible: _pokemonModel != null,
+        child: FloatingActionButton(
+          onPressed: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => PokemonDetailPage(_pokemonModel[
+                      new Random().nextInt(_pokemonModel.length)]),
+                ));
+          },
+          child: const Icon(Icons.call_to_action_rounded),
+          backgroundColor: Colors.blueAccent,
         ),
       ),
     );
