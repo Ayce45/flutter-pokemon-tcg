@@ -5,6 +5,7 @@ Pokedex in flutter app
 ## Screenshot
 
 ![36](https://user-images.githubusercontent.com/32338891/102370565-7ccb5000-3fbd-11eb-8afb-66ddae2821a3.png)
+![pokemon](https://user-images.githubusercontent.com/32338891/112464026-455e0380-8d63-11eb-8b66-c80d638f99f4.gif)
 
 ## Getting Started
 
